@@ -74,17 +74,17 @@ At present this app is having 5 levels, so planning to extend the levels.
     ```
 
 ## **Instructions 📖**
-- The game contains 5 Levels, so you need to complete all the levels to complete the game.
-- To move the avatar use the Arrow Keys or the Swipe Gestures or the Joy Sticks.
-- Push the syringe vaccine to the patient, if both patient and vaccine merges u have completed vaccinating on patient, so the same for the rest of the patients.
-- Use the flag Icon to give up the game.
-- Use the restart Icon to restart the game.
-- Use the settings Icon to change the game settings.
-  > Disable/Enable the sound effects.
+- The game contains 5 Levels🎚️, so you need to complete all the levels to complete the game.
+- To move the avatar use the Arrow Keys or the Swipe Gestures or the Joy Sticks 🎮.
+- Push the syringe vaccine 💉 to the patient, if both patient and vaccine merges u have completed vaccinating on patient, so the same for the rest of the patients.
+- Use the flag 🏴 Icon to give up the game.
+- Use the restart 🔄 Icon to restart the game.
+- Use the settings Icon ⚙️ to change the game settings.
+  > Disable/Enable the sound effects 🔊.
 
-  > Disable/Enable the Vibration.
+  > Disable/Enable the Vibration 📳.
   
-  > Disable/Enable the Joy Sticks. 
+  > Disable/Enable the Joy Sticks 🎮. 
 
 
 ## Screenshots 🤩️
