@@ -87,6 +87,25 @@ At present this app is having 5 levels, so planning to extend the levels.
   > Disable/Enable the Joy Sticks. 
 
 
+## Screenshots 🤩️
+  <table>
+      <tr>
+       <td><img src="images/home.png"></td>
+       <td><img src="images/levels.png"></td>
+      </tr>
+  </table>
+  <table>
+       <tr>
+       <td><img src="images/game.png"></td>
+      </tr>
+  </table>
+  <table>
+       <tr>
+       <td><img src="images/win.png"></td>
+       <td><img src="images/loose.png"></td>
+      </tr>
+  </table>
+
 ### 📺&ensp;Watch Demo Video : [YouTube](https://www.youtube.com/watch?v=2h1yZARPC5U "Covi Kill")
 
 ### 📥&ensp;Try out the game from [here](https://appetize.io/app/bfa1z1krdzzyb2006426ky0k44)
