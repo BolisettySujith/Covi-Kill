@@ -116,7 +116,7 @@ At present this app is having 5 levels, so planning to extend the levels.
       </tr>
   </table>
 
-### **&ensp;Watch Demo Video 📺** : [YouTube](https://www.youtube.com/watch?v=2h1yZARPC5U "Covi Kill")
+### **&ensp;Watch Demo Video 📺** : [YouTube](https://youtu.be/X2FtiMZKcP0)
 
 ### **&ensp;Try out the game from 📥** : [here](https://appetize.io/app/bfa1z1krdzzyb2006426ky0k44)
 
