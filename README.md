@@ -34,7 +34,7 @@ I really proud of building an app like this which is responsive with many more o
 ## **What I have learned**😎
 App State management is the biggest thing that I have learned while building this app, and learned creating animations using canvas as well as in Rive. The another biggest thing that I have learned is creating responsive apps. This app also made me learn many dart concepts and building some super cool logics which make the UI more iteractive.
 
-## **What's next for Covi Kill** 🙃
+## **What's next for Covi Kill**🙃
 At present this app is having 5 levels, so planning to extend the levels.
 
 
@@ -73,6 +73,7 @@ At present this app is having 5 levels, so planning to extend the levels.
     $ flutter run
     ```
 
+
 ## **Instructions 📖**
 - The game contains 5 Levels🎚️, so you need to complete all the levels to complete the game.
 - To move the avatar use the Arrow Keys or the Swipe Gestures or the Joy Sticks 🎮.
@@ -87,7 +88,7 @@ At present this app is having 5 levels, so planning to extend the levels.
   > Disable/Enable the Joy Sticks 🎮. 
 
 
-## Screenshots 🤩️
+## **Desktop View 🖥️**
   <table>
       <tr>
        <td><img src="images/home.png"></td>
@@ -106,8 +107,19 @@ At present this app is having 5 levels, so planning to extend the levels.
       </tr>
   </table>
 
-### 📺&ensp;Watch Demo Video : [YouTube](https://www.youtube.com/watch?v=2h1yZARPC5U "Covi Kill")
+## **Mobile View 📱**
+  <table>
+       <tr>
+       <td><img src="images/home_mobile.jpg"></td>
+       <td><img src="images/level_mobile.jpg"></td>
+       <td><img src="images/win_mobile.jpg"></td>
+      </tr>
+  </table>
 
-### 📥&ensp;Try out the game from [here](https://appetize.io/app/bfa1z1krdzzyb2006426ky0k44)
+### **📺&ensp;Watch Demo Video** : [YouTube](https://www.youtube.com/watch?v=2h1yZARPC5U "Covi Kill")
+
+### **📥&ensp;Try out the game from** [here](https://appetize.io/app/bfa1z1krdzzyb2006426ky0k44)
 
 *<p align="center">Show some support by **⭐ing** the repository 😇</p>*
+
+**<p align="center">Happy Coding 😎</p>**
