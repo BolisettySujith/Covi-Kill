@@ -58,7 +58,7 @@ At present this app is having 5 levels, so planning to extend the levels.
    $ git clone https://github.com/YOUR-GITHUB-USERNAME/covi-kil.git
    ```
 
-4. Open Raag in your favourite editor (VS Code, Android Studio etc)
+4. Open Covi Kill in your favourite editor (VS Code, Android Studio etc)
    
 5. To install the dependencies run the following command in the terminal.
 
