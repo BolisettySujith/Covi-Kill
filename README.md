@@ -2,14 +2,14 @@
 
 **<p align="center">Give Vaccine Kill Covid</p>**
 
-# **Introduction**👨‍💻
+## **Introduction**👨‍💻
 In the initial stages of covid-19 vaccine testing trails, doctors are testing with many vaccines for discovering a cure for covid-19, at that stage it became difficult for the doctors to give a proper vaccine to their patients. So taking this part as an inspiration to provide a vaccine to their patient in difficulit situations. Covi Kill is a simple interactive game which is available in Android, Web, Linux made using flutter.  
 
-# **What it does**😎
+## **What it does**😎
 In this game, doctor avatar need to play 5 levels to complete the whole game, as the levels increases the game hardness increases. The Doctor need to take the vaccine to the covid-19 effected patients, and cure them. There are some covid-19 patients, the doctor need to give them the vaccine to that patient, so by delivering the vaccine to the patient he will be cured.
 
 
-# **Built using**💻
+## **Built using**💻
 <a href="https://raw.githubusercontent.com/Codelessly/ResponsiveFramework/master/packages/Flutter%20Logo%20Banner.png">
   <img alt="Built with Flutter"
        src="https://raw.githubusercontent.com/Codelessly/ResponsiveFramework/master/packages/Flutter%20Logo%20Banner.png"/>
