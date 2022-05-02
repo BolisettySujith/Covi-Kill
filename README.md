@@ -118,7 +118,7 @@ At present this app is having 5 levels, so planning to extend the levels.
 
 ### **&ensp;Watch Demo Video 📺** : [YouTube](https://youtu.be/X2FtiMZKcP0)
 
-### **&ensp;Try out the game from 📥** : [here](https://appetize.io/app/bfa1z1krdzzyb2006426ky0k44)
+### **&ensp;Try out the game from 📥** : [here](https://drive.google.com/file/d/1NNZK--5kLc2dcjwzA9xds5psNpx2CYDW/view?usp=sharing)
 
 *<p align="center">Show some support by **⭐ing** the repository 😇</p>*
 
