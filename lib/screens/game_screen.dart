@@ -855,7 +855,7 @@ class _GameScreenState extends State<GameScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Text(
-                                  'Are you sure want to leave ?',
+                                  'Are you sure want to exit ?',
                                   style: TextStyle(fontSize: 15),
                                 ),
                                 const SizedBox(
@@ -877,8 +877,7 @@ class _GameScreenState extends State<GameScreen> {
                                             settingsStatus.MusicStatus ? gameMusic.failMusic():"";
                                             settingsStatus.vibrateStatus ? HapticFeedback.vibrate() : "";
                                             willLeave = true;
-                                            // Navigator.popUntil(context, (route) => route.settings.name == "/level");
-                                            Navigator.popUntil(context, ModalRoute.withName("/level"));
+                                            Navigator.popUntil(context, ModalRoute.withName("/home"));
                                             // Navigator.push(
                                             //   context,
                                             //   MaterialPageRoute<void>(
@@ -2145,7 +2144,7 @@ class _GameScreenState extends State<GameScreen> {
                             onPressed: () async {
                               settingsStatus.MusicStatus?gameMusic.buttonClick():"";
                               settingsStatus.vibrateStatus?HapticFeedback.vibrate() : "";
-                              Navigator.popUntil(context, ModalRoute.withName("/level"));
+                              Navigator.popUntil(context, ModalRoute.withName("/home"));
                               // Navigator.push(
                               //     context,
                               //     MaterialPageRoute(
@@ -2279,7 +2278,7 @@ class _GameScreenState extends State<GameScreen> {
                       onTap: () {
                         settingsStatus.MusicStatus?gameMusic.buttonClick():"";
                         settingsStatus.vibrateStatus?HapticFeedback.vibrate() : "";
-                        Navigator.popUntil(context, ModalRoute.withName("/level"));
+                        Navigator.popUntil(context, ModalRoute.withName("/home"));
                       },
                       child: const Center(
                         child: Text(
