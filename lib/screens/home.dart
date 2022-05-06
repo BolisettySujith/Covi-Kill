@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:animated_button/animated_button.dart';
 import '../components/earth_rotateting_animation.dart';
+import '../components/settings.dart';
 import '../models/levels_manager.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -180,12 +181,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                   ),
+                  settingsButton(),
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+  Widget settingsButton() {
+    return const Positioned(
+      bottom: 10,
+      left: 10,
+      child: Settingsdialog(),
     );
   }
 }
