@@ -82,7 +82,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                     ],
                   ).value,
                   child: const rive.RiveAnimation.asset(
-                    "assets/levelscreenbackground.riv",
+                    "assets/rive_assets/levelscreenbackground.riv",
                     fit: BoxFit.cover,
                     artboard: "Sun",
                   )
@@ -133,7 +133,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                             ],
                           ).value,
                           child: const rive.RiveAnimation.asset(
-                            "assets/levelscreenbackground.riv",
+                            "assets/rive_assets/levelscreenbackground.riv",
                             fit: BoxFit.fill,
                             artboard: "greenbg",
                           )
@@ -170,7 +170,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                                   ],
                                 ).value,
                                 child: const rive.RiveAnimation.asset(
-                                  "assets/levelscreenbackground.riv",
+                                  "assets/rive_assets/levelscreenbackground.riv",
                                   fit: BoxFit.fill,
                                   artboard: "greenbg",
                                 )
@@ -224,7 +224,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                             ],
                           ).value,
                           child: const rive.RiveAnimation.asset(
-                            "assets/levelscreenbackground.riv",
+                            "assets/rive_assets/levelscreenbackground.riv",
                             fit: BoxFit.fitWidth,
                             artboard: "Clouds",
                           )
@@ -242,7 +242,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                               width: 1000,
                               height: 400,
                               child: const rive.RiveAnimation.asset(
-                                "assets/levelscreenbackground.riv",
+                                "assets/rive_assets/levelscreenbackground.riv",
                                 fit: BoxFit.fitWidth,
                                 artboard: "Clouds",
                               )
@@ -293,7 +293,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                             ],
                           ).value,
                           child: const rive.RiveAnimation.asset(
-                            "assets/levelscreenbackground.riv",
+                            "assets/rive_assets/levelscreenbackground.riv",
                             fit: BoxFit.fitWidth,
                             artboard: "Clouds",
                           )
@@ -345,7 +345,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                             ],
                           ).value,
                           child: const rive.RiveAnimation.asset(
-                            "assets/levelscreenbackground.riv",
+                            "assets/rive_assets/levelscreenbackground.riv",
                             fit: BoxFit.fitWidth,
                             artboard: "greenbg",
                           )
@@ -379,7 +379,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                                   ],
                                 ).value,
                                 child: const rive.RiveAnimation.asset(
-                                  "assets/levelscreenbackground.riv",
+                                  "assets/rive_assets/levelscreenbackground.riv",
                                   fit: BoxFit.fitWidth,
                                   artboard: "greenbg",
                                 )
@@ -905,7 +905,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                 ],
               ).value,
               child: rive.RiveAnimation.asset(
-                "assets/levelscreenbackground.riv",
+                "assets/rive_assets/levelscreenbackground.riv",
                 fit: BoxFit.cover,
                 artboard: "FortAnimations",
                 animations: ((lvlStatus.plevel == 5) &&
@@ -1006,7 +1006,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                     ],
                   ).value,
                   child: rive.RiveAnimation.asset(
-                    "assets/levelscreenbackground.riv",
+                    "assets/rive_assets/levelscreenbackground.riv",
                     fit: BoxFit.cover,
                     artboard: "FortAnimations",
                     animations: ((lvlStatus.plevel == 5) &&

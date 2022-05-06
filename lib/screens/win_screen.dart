@@ -441,7 +441,7 @@ class _WinScreenState extends State<WinScreen>
                                       height: MediaQuery.of(context).size.height / 5,
                                       child: Center(
                                         child: rive.RiveAnimation.asset(
-                                          "assets/winandloose.riv",
+                                          "assets/rive_assets/winandloose.riv",
                                           fit: BoxFit.contain,
                                           artboard: "Lvl" + (currentStage + 1).toString(),
                                         ),

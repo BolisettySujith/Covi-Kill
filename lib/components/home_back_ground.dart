@@ -26,7 +26,7 @@ class _HomeBackGroundState extends State<HomeBackGround> {
                     ? MediaQuery.of(context).size.width / 4.0
                     : MediaQuery.of(context).size.width / 2.0,
                 child: const rive.RiveAnimation.asset(
-                  "assets/homescreen.riv",
+                  "assets/rive_assets/homescreen.riv",
                   fit: BoxFit.cover,
                   artboard: "Clouds",
                 )),
@@ -40,7 +40,7 @@ class _HomeBackGroundState extends State<HomeBackGround> {
                     ? MediaQuery.of(context).size.width / 4.0
                     : MediaQuery.of(context).size.width / 3.0,
                 child: const rive.RiveAnimation.asset(
-                  "assets/homescreen.riv",
+                  "assets/rive_assets/homescreen.riv",
                   fit: BoxFit.cover,
                   artboard: "Clouds",
                 )),
@@ -92,7 +92,7 @@ class _HomeBackGroundState extends State<HomeBackGround> {
               ).value,
               // color: Colors.black,
               child: FittedBox(
-                child: SvgPicture.asset("assets/Covi-Kill logo.svg",),
+                child: SvgPicture.asset("assets/images/Covi-Kill logo.svg",),
                 fit: BoxFit.cover,
               ),
             )
@@ -103,7 +103,7 @@ class _HomeBackGroundState extends State<HomeBackGround> {
             width: MediaQuery.of(context).size.height / 8.5,
             height: MediaQuery.of(context).size.height / 8.5,
             child: const rive.RiveAnimation.asset(
-              "assets/homescreen.riv",
+              "assets/rive_assets/homescreen.riv",
               fit: BoxFit.cover,
               artboard: "CovidElements",
             )),
@@ -113,7 +113,7 @@ class _HomeBackGroundState extends State<HomeBackGround> {
             width: MediaQuery.of(context).size.height / 11,
             height: MediaQuery.of(context).size.height / 11,
             child: const rive.RiveAnimation.asset(
-              "assets/homescreen.riv",
+              "assets/rive_assets/homescreen.riv",
               fit: BoxFit.cover,
               artboard: "CovidElements",
             )),
@@ -122,7 +122,7 @@ class _HomeBackGroundState extends State<HomeBackGround> {
             width: MediaQuery.of(context).size.height / 1.6,
             height: MediaQuery.of(context).size.height / 1.6,
             child: const rive.RiveAnimation.asset(
-              "assets/homescreen.riv",
+              "assets/rive_assets/homescreen.riv",
               fit: BoxFit.cover,
               artboard: "MainComponenet",
             )),

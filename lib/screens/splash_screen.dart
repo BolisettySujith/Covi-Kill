@@ -43,7 +43,7 @@ class _SplashScrennState extends State<SplashScrenn> {
             Stack(
               alignment: Alignment.center,
               children: [
-                SvgPicture.asset("assets/app_logo.svg"),
+                SvgPicture.asset("assets/images/app_logo.svg"),
               ],
             ),
             // SvgPicture.asset("assets/app_logo.svg"),

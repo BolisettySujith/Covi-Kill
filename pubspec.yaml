@@ -96,6 +96,9 @@ flutter:
     - assets/audio/game_enter.wav
     - assets/audio/switch.mp3
     - assets/instructions/
+    - assets/rive_assets/
+    - assets/images/
+    - assets/images/male_doctor.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

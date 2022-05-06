@@ -37,7 +37,7 @@ class _EarthAnimationState extends State<EarthAnimation>
             borderRadius: BorderRadius.all(Radius.circular(100)),
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage("assets/DocOnGlobe.png"),
+              image: AssetImage("assets/images/DocOnGlobe.png"),
             )),
       ),
     );

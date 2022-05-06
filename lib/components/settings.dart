@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../models/app_state.dart';
-import '../screens/Settings Screens/about_us.dart';
 import 'music.dart';
 import 'package:url_launcher/url_launcher.dart';
 class Settingsdialog extends StatefulWidget {
@@ -236,7 +235,7 @@ class _SettingsdialogState extends State<Settingsdialog> {
                             SizedBox(
                               height: 250,
                                 width: 100,
-                                child: Image.asset("assets/SujithLogo.png",fit: BoxFit.fill,)
+                                child: Image.asset("assets/images/SujithLogo.png",fit: BoxFit.fill,)
                             ),
                             const Spacer(),
                             RichText(

@@ -953,7 +953,7 @@ class _GameScreenState extends State<GameScreen> {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       opacity: 60,
-                      image: AssetImage("assets/DocGivingVaccine.png"),
+                      image: AssetImage("assets/images/DocGivingVaccine.png"),
                     )),
                 child: Scaffold(
                   backgroundColor: Colors.transparent,
@@ -1037,7 +1037,7 @@ class _GameScreenState extends State<GameScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     FittedBox(
-                                      child: SvgPicture.asset("assets/Covi-Kill logo.svg",),
+                                      child: SvgPicture.asset("assets/images/Covi-Kill logo.svg",),
                                       fit: BoxFit.cover,
                                     ),
                                   ],
@@ -1515,7 +1515,7 @@ class _GameScreenState extends State<GameScreen> {
                                         image: DecorationImage(
                                           fit: BoxFit.cover,
                                           // opacity: 60,
-                                          image: AssetImage("assets/covid_Person.png"),
+                                          image: AssetImage("assets/images/covid_Person.png"),
                                         )
                                     ),
                                   )
@@ -1534,7 +1534,7 @@ class _GameScreenState extends State<GameScreen> {
                                         image: DecorationImage(
                                           fit: BoxFit.fill,
                                           // opacity: 60,
-                                          image: AssetImage("assets/syringe.png"),
+                                          image: AssetImage("assets/images/syringe.png"),
                                         )
                                     ),
                                   )
@@ -1556,7 +1556,7 @@ class _GameScreenState extends State<GameScreen> {
                                             image: DecorationImage(
                                               fit: BoxFit.fill,
                                               // opacity: 60,
-                                              image: AssetImage("assets/male_doctor.gif"),
+                                              image: AssetImage("assets/images/male_doctor.gif"),
                                             )
                                         ),
                                       )
@@ -1662,7 +1662,7 @@ class _GameScreenState extends State<GameScreen> {
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   // opacity: 60,
-                                  image: AssetImage("assets/covid_Person.png"),
+                                  image: AssetImage("assets/images/covid_Person.png"),
                                 )
                             ),
                           )
@@ -1681,7 +1681,7 @@ class _GameScreenState extends State<GameScreen> {
                                 image: DecorationImage(
                                   fit: BoxFit.fill,
                                   // opacity: 60,
-                                  image: AssetImage("assets/syringe.png"),
+                                  image: AssetImage("assets/images/syringe.png"),
                                 )
                             ),
                           )
@@ -1703,7 +1703,7 @@ class _GameScreenState extends State<GameScreen> {
                                     image: DecorationImage(
                                       fit: BoxFit.fill,
                                       // opacity: 60,
-                                      image: AssetImage("assets/male_doctor.gif"),
+                                      image: AssetImage("assets/images/male_doctor.gif"),
                                     )
                                 ),
                               )
@@ -1917,7 +1917,7 @@ class _GameScreenState extends State<GameScreen> {
                             height: MediaQuery.of(context).size.height / 5,
                             child: const Center(
                               child: rive.RiveAnimation.asset(
-                                "assets/winandloose.riv",
+                                "assets/rive_assets/winandloose.riv",
                                 fit: BoxFit.contain,
                                 artboard: "LooseBoard",
                               ),
