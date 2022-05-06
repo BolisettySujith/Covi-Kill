@@ -25,19 +25,6 @@ In this game, doctor avatar need to play 5 levels to complete the whole game, as
 
 -----------
 
-## **Challenges I ran into 🤔**
-It was the first time to Build an responsive app, so it was Challenging to build an app like this. Making the UI also gave me challanging.
-
-## **Accomplishments that I'm proud of 😁**
-I really proud of building an app like this which is responsive with many more other awsome features and it teached me a lot of lessons while building this app.
-
-## **What I have learned 😎**
-App State management is the biggest thing that I have learned while building this app, and learned creating animations using canvas as well as in Rive. The another biggest thing that I have learned is creating responsive apps. This app also made me learn many dart concepts and building some super cool logics which make the UI more iteractive.
-
-## **What's next for Covi Kill 🙃**
-At present this app is having 5 levels, so planning to extend the levels.
-
-
 ## **Getting Started 🏃‍♂️️**
 
 - These instructions will get you a copy of the project up and be running on your local machine for development and testing purposes.
@@ -55,7 +42,7 @@ At present this app is having 5 levels, so planning to extend the levels.
 3. Clone your fork of the project locally. At the command line:
             
    ```
-   $ git clone https://github.com/YOUR-GITHUB-USERNAME/covi-kil.git
+   $ git clone https://github.com/YOUR-GITHUB-USERNAME/covi-kill.git
    ```
 
 4. Open Covi Kill in your favourite editor (VS Code, Android Studio etc)
