@@ -685,7 +685,7 @@ Public License instead of this License.  But first, please read
       applicationName: "Covi Kill",
       applicationIcon: Padding(
         padding: EdgeInsets.all(8),
-        child: Image.asset("assets/app_logo.png",width: 100,height: 100,),
+        child: Image.asset("assets/images/app_logo.png",width: 100,height: 100,),
       ),
       applicationVersion: '0.0.1',
       applicationLegalese: license_des,

@@ -99,6 +99,20 @@ flutter:
     - assets/rive_assets/
     - assets/images/
     - assets/images/male_doctor.gif
+    - assets/images/app_logo.png
+    - assets/images/app_logo.svg
+    - assets/images/Covi-Kill logo.svg
+    - assets/images/covid_Person.png
+    - assets/images/DocGivingVaccine.png
+    - assets/images/DocOnGlobe.png
+    - assets/images/healthcare-workers.jpg
+    - assets/images/male_doctor.gif
+    - assets/images/SujithLogo.png
+    - assets/images/syringe.png
+    - assets/instructions/four_directions.png
+    - assets/instructions/move_syringe.png
+    - assets/instructions/supply_syringe.png
+    - assets/instructions/wall_no_move.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
