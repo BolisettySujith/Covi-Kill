@@ -786,6 +786,12 @@ class _WinScreenState extends State<WinScreen>
                           decoration: BoxDecoration(
                             color: Colors.deepOrange,
                             borderRadius: BorderRadius.circular(100),
+                            boxShadow: const <BoxShadow>[
+                              BoxShadow(
+                                  color: Colors.black,
+                                  offset: Offset(-1.0, 1.0),
+                                  blurRadius: 5.0),
+                            ],
                           ),
                           child: Center(
                               child: GestureDetector(
@@ -814,7 +820,7 @@ class _WinScreenState extends State<WinScreen>
                           ),
                         ),
                         top: 0,
-                        right: -1,
+                        right: 0,
                       ),
                     ]),
               );

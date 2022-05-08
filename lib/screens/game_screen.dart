@@ -403,6 +403,12 @@ class _GameScreenState extends State<GameScreen> {
                       decoration: BoxDecoration(
                         color: Colors.deepOrange,
                         borderRadius: BorderRadius.circular(100),
+                        boxShadow: const <BoxShadow>[
+                          BoxShadow(
+                              color: Colors.black,
+                              offset: Offset(-1.0, 1.0),
+                              blurRadius: 5.0),
+                        ],
                       ),
                       child: Center(
                           child: GestureDetector(
@@ -421,7 +427,7 @@ class _GameScreenState extends State<GameScreen> {
                           )),
                     ),
                     top: 0,
-                    right: -1,
+                    right: 0,
                   ),
                 ]),
               );
@@ -2272,6 +2278,12 @@ class _GameScreenState extends State<GameScreen> {
                 decoration: BoxDecoration(
                   color: Colors.deepOrange,
                   borderRadius: BorderRadius.circular(100),
+                  boxShadow: const <BoxShadow>[
+                    BoxShadow(
+                        color: Colors.black,
+                        offset: Offset(-1.0, 1.0),
+                        blurRadius: 5.0),
+                  ],
                 ),
                 child: Center(
                     child: GestureDetector(
@@ -2289,7 +2301,7 @@ class _GameScreenState extends State<GameScreen> {
                     )),
               ),
               top: 0,
-              right: -1,
+              right: 0,
             ),
           ]),
         );
