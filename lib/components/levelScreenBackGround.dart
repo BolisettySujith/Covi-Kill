@@ -429,6 +429,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                       levelListTile(3),
                       levelListTile(4),
                       levelListTile(5),
+                      levelListTile(6),
                     ],
                   )
                 ],
