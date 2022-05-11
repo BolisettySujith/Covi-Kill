@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class Bubbles extends StatefulWidget {
+  const Bubbles({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _BubblesState();
@@ -65,7 +67,9 @@ class _BubblesState extends State<Bubbles> with SingleTickerProviderStateMixin {
   }
 
   void updateBubblePosition() {
-    bubbles.forEach((it) => it.updatePosition());
+    for (var it in bubbles) {
+      it.updatePosition();
+    }
     setState(() {});
   }
 }
@@ -104,7 +108,7 @@ class Bubble {
   }
 
   draw(Canvas canvas, Size canvasSize) {
-    Paint paint = new Paint()
+    Paint paint = Paint()
       ..color = colour
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.fill;
