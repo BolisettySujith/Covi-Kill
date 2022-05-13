@@ -5,6 +5,7 @@ import 'package:animated_button/animated_button.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:covi_kill/components/music.dart';
 import 'package:covi_kill/models/settings_manager.dart';
+import 'package:covi_kill/models/stages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
@@ -67,6 +68,7 @@ class _WinScreenState extends State<WinScreen>
   bool celStatus = true;
   final playerS = AudioCache();
   Music gameMusic = Music();
+
 
   final kInnerDecoration = BoxDecoration(
     color: Colors.black87,
@@ -702,7 +704,7 @@ class _WinScreenState extends State<WinScreen>
                                       shape: BoxShape.circle,
                                     ),
                                     const Spacer(),
-                                    AnimatedButton(
+                                    (currentStage+1) == stages.length ? Container():AnimatedButton(
                                       onPressed: () async {
                                         await settingsStatus.MusicStatus ? gameMusic.gameEnterMusic() : "";
                                         await settingsStatus.vibrateStatus? HapticFeedback.vibrate() : "";
@@ -751,7 +753,7 @@ class _WinScreenState extends State<WinScreen>
                                       color: Colors.transparent,
                                       shape: BoxShape.rectangle,
                                     ),
-                                    const Spacer(),
+                                    (currentStage+1) == stages.length ? Container():const Spacer(),
                                   ],
                                 ),
                                 const Spacer(),

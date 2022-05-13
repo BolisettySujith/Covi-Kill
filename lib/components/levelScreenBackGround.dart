@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:animated_button/animated_button.dart';
 import 'package:covi_kill/models/levels_manager.dart';
+import 'package:covi_kill/models/stages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -430,6 +431,7 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                       levelListTile(4),
                       levelListTile(5),
                       levelListTile(6),
+                      levelListTile(7),
                     ],
                   )
                 ],
@@ -946,6 +948,8 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                       levelListTile(3),
                       levelListTile(4),
                       levelListTile(5),
+                      levelListTile(6),
+                      levelListTile(7),
                     ],
                   )
                 ],
@@ -1010,8 +1014,8 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                     "assets/rive_assets/levelscreenbackground.riv",
                     fit: BoxFit.cover,
                     artboard: "FortAnimations",
-                    animations: ((lvlStatus.plevel == 5) &&
-                        (lvlStatus.lvlsStatus[4] == "1")) ? ["AllDone"] : [
+                    animations: ((lvlStatus.plevel == stages.length) &&
+                        (lvlStatus.lvlsStatus[stages.length-2] == "1")) ? ["AllDone"] : [
                       "level${lvlStatus.plevel}"
                     ],
                   )
