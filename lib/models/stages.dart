@@ -1,28 +1,28 @@
 class Stages {
-  List<int> staticIndexList;
-  List<int> bricksStartPosition;
-  List<int> foodPositionList;
-  List<int> treesPositionList;
+  List<int> wallIndexList;
+  List<int> syringeStartPosition;
+  List<int> patientPositionList;
+  List<int> emptySpacePositionList;
 
   bool completed;
-  bool OnLevel;
-  int playerStartIndex;
+  bool onLevel;
+  int doctorStartIndex;
 
   Stages({
-    required this.staticIndexList,
-    required this.bricksStartPosition,
-    required this.foodPositionList,
-    required this.treesPositionList,
-    required this.playerStartIndex,
+    required this.wallIndexList,
+    required this.syringeStartPosition,
+    required this.patientPositionList,
+    required this.emptySpacePositionList,
+    required this.doctorStartIndex,
     required this.completed,
-    required this.OnLevel,
+    required this.onLevel,
   });
 }
 
 List<Stages> stages = [
   //lvl-1
   Stages(
-    staticIndexList: [
+    wallIndexList: [
       2,
       3,
       4,
@@ -56,16 +56,16 @@ List<Stages> stages = [
       76,
       77
     ],
-    bricksStartPosition: [30, 39, 49, 32],
-    foodPositionList: [12, 33, 37, 58],
-    treesPositionList: [0,1,5,6,7,8,9,10,14,15,16,17,18,19,51,52,53,54,55,56,60,61,62,63,64,65,69,70,71,72,73,74,78,79,80,81],
-    playerStartIndex: 40,
+    syringeStartPosition: [30, 39, 49, 32],
+    patientPositionList: [12, 33, 37, 58],
+    emptySpacePositionList: [0,1,5,6,7,8,9,10,14,15,16,17,18,19,51,52,53,54,55,56,60,61,62,63,64,65,69,70,71,72,73,74,78,79,80,81],
+    doctorStartIndex: 40,
     completed: false,
-    OnLevel: true,
+    onLevel: true,
   ),
   //lvl-2
   Stages(
-    staticIndexList: [
+    wallIndexList: [
       0,
       1,
       2,
@@ -106,16 +106,16 @@ List<Stages> stages = [
       18,
       9
     ],
-    bricksStartPosition: [21, 20, 29],
-    foodPositionList: [34, 43, 52],
-    treesPositionList: [5,6,7,8,14,15,16,17,23,32,45,54,63,72,78,79, 80],
-    playerStartIndex: 12,
+    syringeStartPosition: [21, 20, 29],
+    patientPositionList: [34, 43, 52],
+    emptySpacePositionList: [5,6,7,8,14,15,16,17,23,32,45,54,63,72,78,79, 80],
+    doctorStartIndex: 12,
     completed: false,
-    OnLevel: false,
+    onLevel: false,
   ),
   //lvl-3
   Stages(
-    staticIndexList: [
+    wallIndexList: [
       10,
       11,
       19,
@@ -145,16 +145,16 @@ List<Stages> stages = [
       61,
       70
     ],
-    bricksStartPosition: [31, 41, 49, 59],
-    foodPositionList: [48, 57, 58, 60],
-    treesPositionList: [2,7,8,9,16,17,18,25,26,27,35,36,44,45,53,54,55,62,63,64,71,72,73,74,75,76,77,78,79,80,0,1],
-    playerStartIndex: 22,
+    syringeStartPosition: [31, 41, 49, 59],
+    patientPositionList: [48, 57, 58, 60],
+    emptySpacePositionList: [2,7,8,9,16,17,18,25,26,27,35,36,44,45,53,54,55,62,63,64,71,72,73,74,75,76,77,78,79,80,0,1],
+    doctorStartIndex: 22,
     completed: false,
-    OnLevel: false,
+    onLevel: false,
   ),
   //lvl-4
   Stages(
-    staticIndexList: [
+    wallIndexList: [
       1,
       2,
       3,
@@ -191,16 +191,16 @@ List<Stages> stages = [
       40,
       50
     ],
-    bricksStartPosition: [21, 59, 47],
-    foodPositionList: [37, 46, 55],
-    treesPositionList: [0,5,6,7,8,9,16,17,18,25,26,35,71,72,73,74,75,76,77,78,79,80],
-    playerStartIndex: 11,
+    syringeStartPosition: [21, 59, 47],
+    patientPositionList: [37, 46, 55],
+    emptySpacePositionList: [0,5,6,7,8,9,16,17,18,25,26,35,71,72,73,74,75,76,77,78,79,80],
+    doctorStartIndex: 11,
     completed: false,
-    OnLevel: false,
+    onLevel: false,
   ),
   //lvl-5
   Stages(
-    staticIndexList: [
+    wallIndexList: [
       2,
       3,
       4,
@@ -231,21 +231,31 @@ List<Stages> stages = [
       20,
       11
     ],
-    bricksStartPosition: [38, 30, 21, 22, 23],
-    foodPositionList: [39, 40, 41, 32, 31],
-    treesPositionList: [0,1,9,10,52,53,54,55,56,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80],
-    playerStartIndex: 28,
+    syringeStartPosition: [38, 30, 21, 22, 23],
+    patientPositionList: [39, 40, 41, 32, 31],
+    emptySpacePositionList: [0,1,9,10,52,53,54,55,56,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80],
+    doctorStartIndex: 28,
     completed: false,
-    OnLevel: false,
+    onLevel: false,
   ),
   //lvl-6
   Stages(
-      staticIndexList: [2,3,4,5,9,10,11,14,18,23,27,31,32,33,34,36,37,38,40,43,44,47,53,56,61,62,65,68,69,70,74,75,76,77],
-      bricksStartPosition: [49,50,59],
-      foodPositionList:[31,42,66],
-      treesPositionList:[0,1,6,7,8,15,16,17,24,25,26,35,45,46,54,55,63,64,71,72,73,78,79,80],
-      playerStartIndex:41,
+      wallIndexList: [2,3,4,5,9,10,11,14,18,23,27,31,32,33,34,36,37,38,40,43,44,47,53,56,61,62,65,68,69,70,74,75,76,77],
+      syringeStartPosition: [49,50,59],
+      patientPositionList:[31,42,66],
+      emptySpacePositionList:[0,1,6,7,8,15,16,17,24,25,26,35,45,46,54,55,63,64,71,72,73,78,79,80],
+      doctorStartIndex:41,
       completed:false,
-      OnLevel:false
+      onLevel:false
+  ),
+  //lvl-7
+  Stages(
+      wallIndexList: [1,2,3,4,5,6,7,8,10,17,19,25,26,27,28,33,34,36,42,45,50,51,54,55,59,64,65,67,68,74,75,76],
+      syringeStartPosition: [22,23,29,30,47,49],
+      patientPositionList:[21,23,30,39,48,57],
+      emptySpacePositionList:[0,9,18,35,43,44,52,53,60,61,62,63,69,70,71,72,73,77,78,79,80],
+      doctorStartIndex:41,
+      completed:false,
+      onLevel:false
   ),
 ];

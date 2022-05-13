@@ -48,11 +48,11 @@ class _GameScreenState extends State<GameScreen> {
   bool _showBottombar = true;
   List<String> board = [];
   int currentStage;
-  List<int> staticIndexList = [];
-  List<int> bricksStartPosition = [];
-  List<int> treesPositionList = [];
-  List<int> foodPositionList = [];
-  int playerIndex = 1;
+  List<int> boardWallIndexList = [];
+  List<int> boardSyringeStartPositionList = [];
+  List<int> boardEmptySpacePositionList = [];
+  List<int> boardPatientPositionList = [];
+  int boardDoctorStartIndex = 1;
   bool hasWon = false;
   bool endGame = false;
   var direction = 'up';
@@ -71,18 +71,18 @@ class _GameScreenState extends State<GameScreen> {
       SystemUiOverlay.bottom
     ]);
     board = List.generate(81, (index) => '$index');
-    staticIndexList = stages[currentStage].staticIndexList.sublist(0);
-    bricksStartPosition = stages[currentStage].bricksStartPosition.sublist(0);
-    foodPositionList = stages[currentStage].foodPositionList.sublist(0);
-    treesPositionList = stages[currentStage].treesPositionList.sublist(0);
-    playerIndex = stages[currentStage].playerStartIndex;
+    boardWallIndexList = stages[currentStage].wallIndexList.sublist(0);
+    boardSyringeStartPositionList = stages[currentStage].syringeStartPosition.sublist(0);
+    boardPatientPositionList = stages[currentStage].patientPositionList.sublist(0);
+    boardEmptySpacePositionList = stages[currentStage].emptySpacePositionList.sublist(0);
+    boardDoctorStartIndex = stages[currentStage].doctorStartIndex;
     buildBoard();
     addCovidIcons();
-    
+    initialBlockStatus();
   }
 
   void addCovidIcons() {
-    for (var i = 0; i < foodPositionList.length; i++) {
+    for (var i = 0; i < boardPatientPositionList.length; i++) {
       covidIcons
           .add(Icon(Icons.coronavirus_outlined, color: Colors.white, size: 20));
     }
@@ -111,25 +111,25 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void buildBoard() {
-    staticIndexList.sort();
-    foodPositionList.sort();
-    bricksStartPosition.sort();
-    treesPositionList.sort();
+    boardWallIndexList.sort();
+    boardPatientPositionList.sort();
+    boardSyringeStartPositionList.sort();
+    boardEmptySpacePositionList.sort();
 
     for (var i = 0; i < board.length; i++) {
-      if (staticIndexList.contains(i)) {
+      if (boardWallIndexList.contains(i)) {
         board[i] = 'X';
       }
-      if (treesPositionList.contains(i)) {
+      if (boardEmptySpacePositionList.contains(i)) {
         board[i] = 'T';
       }
-      if (foodPositionList.contains(i)) {
+      if (boardPatientPositionList.contains(i)) {
         board[i] = 'F';
       }
-      if (bricksStartPosition.contains(i)) {
+      if (boardSyringeStartPositionList.contains(i)) {
         board[i] = 'B';
       }
-      if (i == playerIndex) {
+      if (i == boardDoctorStartIndex) {
         board[i] = 'P';
       }
     }
@@ -139,9 +139,9 @@ class _GameScreenState extends State<GameScreen> {
     int newplayerIndex;
 
     if (positiveMove) {
-      newplayerIndex = playerIndex + moveCount;
+      newplayerIndex = boardDoctorStartIndex + moveCount;
     } else {
-      newplayerIndex = playerIndex - moveCount;
+      newplayerIndex = boardDoctorStartIndex - moveCount;
     }
     if (board[newplayerIndex] == 'X') {
       return;
@@ -160,22 +160,22 @@ class _GameScreenState extends State<GameScreen> {
       }
 
       setState(() {
-        board[playerIndex] = '$playerIndex';
+        board[boardDoctorStartIndex] = '$boardDoctorStartIndex';
         int newBrickPosition = positiveMove
             ? newplayerIndex + moveCount
             : newplayerIndex - moveCount;
-        bricksStartPosition[bricksStartPosition.indexOf(newplayerIndex)] =
+        boardSyringeStartPositionList[boardSyringeStartPositionList.indexOf(newplayerIndex)] =
             newBrickPosition;
-        playerIndex = newplayerIndex;
-        board[playerIndex] = 'P';
+        boardDoctorStartIndex = newplayerIndex;
+        board[boardDoctorStartIndex] = 'P';
       });
       checkIfWin(context, music, vibration);
     } else {
       currentSteps++;
       setState(() {
-        board[playerIndex] = '$playerIndex';
-        playerIndex = newplayerIndex;
-        board[playerIndex] = 'P';
+        board[boardDoctorStartIndex] = '$boardDoctorStartIndex';
+        boardDoctorStartIndex = newplayerIndex;
+        board[boardDoctorStartIndex] = 'P';
       });
       checkIfWin(context, music, vibration);
     }
@@ -210,7 +210,7 @@ class _GameScreenState extends State<GameScreen> {
     );
     currentBrickPosition.sort();
     checkBlockStatus(currentBrickPosition, music, vibration);
-    if (listEquals(currentBrickPosition, foodPositionList)) {
+    if (listEquals(currentBrickPosition, boardPatientPositionList)) {
       await Future.delayed(const Duration(seconds: 1));
       setState(() {
         if(Provider.of<LevelsManager>(context,listen: false).plevel == currentStage+1){
@@ -228,20 +228,47 @@ class _GameScreenState extends State<GameScreen> {
     }
   }
 
+  void initialBlockStatus(){
+    buildBoard();
+    List<int> currentBrickPosition = [];
+    board.asMap().forEach(
+          (index, element) {
+        if (element == 'B') {
+          currentBrickPosition.add(index);
+        }
+      },
+    );
+    currentBrickPosition.sort();
+    var num = 0;
+    int eq_block = 0;
+    for (var i = num; i < boardPatientPositionList.length; i++) {
+      if (boardPatientPositionList.contains(currentBrickPosition[i])) {
+        eq_block++;
+      }
+    }
+
+    if(currentgamestatus < eq_block){
+      setState(() {
+        currentgamestatus = eq_block;
+        updateCovidIcons();
+      });
+    }
+
+  }
 
   void checkBlockStatus(List<int> block,bool music, bool vibration ) async {
     List<int> currentBrickPosition = block;
     var num = 0;
     int eq_block = 0;
-    for (var i = num; i < foodPositionList.length; i++) {
-      if (foodPositionList.contains(currentBrickPosition[i])) {
+    for (var i = num; i < boardPatientPositionList.length; i++) {
+      if (boardPatientPositionList.contains(currentBrickPosition[i])) {
         eq_block++;
       }
     }
-    if(currentgamestatus < eq_block){
+    if((currentgamestatus < eq_block) || (currentgamestatus > eq_block)){
       print("DONE DONE DONE");
-      music ? gameMusic.vaccineCollctedMusic():"";
-      vibration ? HapticFeedback.vibrate() : "";
+      (currentgamestatus > eq_block) ? "" : (music ? gameMusic.vaccineCollctedMusic() : "");
+      (currentgamestatus > eq_block) ? "" : (vibration ? HapticFeedback.vibrate() : "");
       setState(() {
         currentgamestatus = eq_block;
         updateCovidIcons();
@@ -498,10 +525,10 @@ class _GameScreenState extends State<GameScreen> {
                           width: MediaQuery.of(context).size.width / 5,
                           height: 25,
                           child: LiquidLinearProgressIndicator(
-                            value: currentgamestatus / foodPositionList.length,
+                            value: currentgamestatus / boardPatientPositionList.length,
                             // Defaults to 0.5.
                             valueColor: AlwaysStoppedAnimation(
-                                (((currentgamestatus / foodPositionList.length)*100) ==100) ? Colors.lightGreen: Colors.white ),
+                                (((currentgamestatus / boardPatientPositionList.length)*100) ==100) ? Colors.lightGreen: Colors.white ),
                             // Defaults to the current Theme's accentColor.
                             backgroundColor: Colors.cyan.shade300,
                             // Defaults to the current Theme's backgroundColor.
@@ -510,11 +537,11 @@ class _GameScreenState extends State<GameScreen> {
                             borderRadius: 12.0,
                             direction: Axis.horizontal,
                             center: Text(
-                              (((currentgamestatus / foodPositionList.length)*100) ==0)
+                              (((currentgamestatus / boardPatientPositionList.length)*100) ==0)
                                   ? parser.emojify(':nauseated_face:')
-                                  : (((currentgamestatus / foodPositionList.length)*100) >= 25) && (((currentgamestatus / foodPositionList.length)*100) <= 50)
+                                  : (((currentgamestatus / boardPatientPositionList.length)*100) >= 25) && (((currentgamestatus / boardPatientPositionList.length)*100) <= 50)
                                   ? parser.emojify(':slightly_frowning_face:')
-                                  : (((currentgamestatus / foodPositionList.length)*100) <= 75)
+                                  : (((currentgamestatus / boardPatientPositionList.length)*100) <= 75)
                                   ? parser.emojify(':slightly_smiling_face:')
                                   : parser.emojify(':smiley:'),
                             )
@@ -572,7 +599,7 @@ class _GameScreenState extends State<GameScreen> {
                             size: 10,
                           ),
                           Text(
-                            foodPositionList.length.toString(),
+                            boardPatientPositionList.length.toString(),
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 10),
                           ),
@@ -676,7 +703,7 @@ class _GameScreenState extends State<GameScreen> {
               ),
             ),
             Flexible(
-              flex: 2,
+              flex: 3,
               child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                   height: 50,
@@ -1007,71 +1034,71 @@ class _GameScreenState extends State<GameScreen> {
                       )
                           : lostScreen())
                       : Center(
-                    child: Shortcuts(
-                      shortcuts: {
-                        LogicalKeySet(LogicalKeyboardKey.arrowUp): UpIntent(),
-                        LogicalKeySet(LogicalKeyboardKey.arrowDown):
-                        DownIntent(),
-                        LogicalKeySet(LogicalKeyboardKey.arrowRight):
-                        RightIntent(),
-                        LogicalKeySet(LogicalKeyboardKey.arrowLeft):
-                        LeftIntent(),
-                      },
-                      child: Actions(
-                        actions: {
-                          UpIntent: CallbackAction<UpIntent>(
-                              onInvoke: (intent) => moveDirection(context,"up",settingsStatus.MusicStatus,settingsStatus.vibrateStatus)),
-                          DownIntent: CallbackAction<DownIntent>(
-                              onInvoke: (intent) => moveDirection(context,"down",settingsStatus.MusicStatus,settingsStatus.vibrateStatus)),
-                          RightIntent: CallbackAction<RightIntent>(
-                              onInvoke: (intent) => moveDirection(context,"right",settingsStatus.MusicStatus,settingsStatus.vibrateStatus)),
-                          LeftIntent: CallbackAction<LeftIntent>(
-                              onInvoke: (intent) => moveDirection(context,"left",settingsStatus.MusicStatus,settingsStatus.vibrateStatus)),
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Stack(
-                            children: [
-                              MediaQuery.of(context).size.width > 1400 ? Positioned(
-                                top: 0,
-                                left: 10,
-                                child: SizedBox(
-                                height: 200,
-                                width: 500,
-                                // color: Colors.black,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    FittedBox(
-                                      child: SvgPicture.asset("assets/images/Covi-Kill logo.svg",),
-                                      fit: BoxFit.cover,
+                        child: Shortcuts(
+                          shortcuts: {
+                            LogicalKeySet(LogicalKeyboardKey.arrowUp): UpIntent(),
+                            LogicalKeySet(LogicalKeyboardKey.arrowDown):
+                            DownIntent(),
+                            LogicalKeySet(LogicalKeyboardKey.arrowRight):
+                            RightIntent(),
+                            LogicalKeySet(LogicalKeyboardKey.arrowLeft):
+                            LeftIntent(),
+                          },
+                          child: Actions(
+                            actions: {
+                              UpIntent: CallbackAction<UpIntent>(
+                                  onInvoke: (intent) => moveDirection(context,"up",settingsStatus.MusicStatus,settingsStatus.vibrateStatus)),
+                              DownIntent: CallbackAction<DownIntent>(
+                                  onInvoke: (intent) => moveDirection(context,"down",settingsStatus.MusicStatus,settingsStatus.vibrateStatus)),
+                              RightIntent: CallbackAction<RightIntent>(
+                                  onInvoke: (intent) => moveDirection(context,"right",settingsStatus.MusicStatus,settingsStatus.vibrateStatus)),
+                              LeftIntent: CallbackAction<LeftIntent>(
+                                  onInvoke: (intent) => moveDirection(context,"left",settingsStatus.MusicStatus,settingsStatus.vibrateStatus)),
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Stack(
+                                children: [
+                                  MediaQuery.of(context).size.width > 1400 ? Positioned(
+                                    top: 0,
+                                    left: 10,
+                                    child: SizedBox(
+                                    height: 200,
+                                    width: 500,
+                                    // color: Colors.black,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        FittedBox(
+                                          child: SvgPicture.asset("assets/images/Covi-Kill logo.svg",),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              ),
-                              ):Container(),
-                              MediaQuery.of(context).size.width > 1400 ? Positioned(
-                                top: 0,
-                                right: 5,
-                                child: SizedBox(
-                                  height: 200,
-                                  width: 200,
-                                  // color: Colors.black,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: const [
-                                      Settingsdialog(),
-                                    ],
                                   ),
-                                ),
-                              ):Container(),
-                              MediaQuery.of(context).size.width >= 1400 ? GameRowScreen(settingsStatus) : GameColumnScreen(settingsStatus),
-                              settingsStatus.joyStickstatus ? JoyStick():Container(),
-                            ],
+                                  ):Container(),
+                                  MediaQuery.of(context).size.width > 1400 ? Positioned(
+                                    top: 0,
+                                    right: 5,
+                                    child: SizedBox(
+                                      height: 200,
+                                      width: 200,
+                                      // color: Colors.black,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: const [
+                                          Settingsdialog(),
+                                        ],
+                                      ),
+                                    ),
+                                  ):Container(),
+                                  MediaQuery.of(context).size.width >= 1400 ? GameRowScreen(settingsStatus) : GameColumnScreen(settingsStatus),
+                                  settingsStatus.joyStickstatus ? JoyStick():Container(),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
                   ),
                 ),
               ),
@@ -1227,7 +1254,7 @@ class _GameScreenState extends State<GameScreen> {
                                                 size: 15,
                                               ),
                                               Text(
-                                                foodPositionList.length.toString(),
+                                                boardPatientPositionList.length.toString(),
                                                 style: const TextStyle(fontSize: 15),
                                               ),
                                               const Text(
@@ -1298,10 +1325,10 @@ class _GameScreenState extends State<GameScreen> {
                                           width: 170,
                                           height: 40,
                                           child: LiquidLinearProgressIndicator(
-                                              value: currentgamestatus / foodPositionList.length,
+                                              value: currentgamestatus / boardPatientPositionList.length,
                                               // Defaults to 0.5.
                                               valueColor: AlwaysStoppedAnimation(
-                                                  (((currentgamestatus / foodPositionList.length)*100) ==100) ? Colors.lightGreen: Colors.white ),
+                                                  (((currentgamestatus / boardPatientPositionList.length)*100) ==100) ? Colors.lightGreen: Colors.white ),
                                               // Defaults to the current Theme's accentColor.
                                               backgroundColor: Colors.cyan.shade300,
                                               // Defaults to the current Theme's backgroundColor.
@@ -1311,11 +1338,11 @@ class _GameScreenState extends State<GameScreen> {
                                               direction: Axis.horizontal,
                                               // The direction the liquid moves (Axis.vertical = bottom to top, Axis.horizontal = left to right). Defaults to Axis.horizontal.
                                               center: Text(
-                                                (((currentgamestatus / foodPositionList.length)*100) ==0)
+                                                (((currentgamestatus / boardPatientPositionList.length)*100) ==0)
                                                     ? parser.emojify(':nauseated_face:')
-                                                    : (((currentgamestatus / foodPositionList.length)*100) >= 25) && (((currentgamestatus / foodPositionList.length)*100) <= 50)
+                                                    : (((currentgamestatus / boardPatientPositionList.length)*100) >= 25) && (((currentgamestatus / boardPatientPositionList.length)*100) <= 50)
                                                     ? parser.emojify(':slightly_frowning_face:')
-                                                    : (((currentgamestatus / foodPositionList.length)*100) <= 75)
+                                                    : (((currentgamestatus / boardPatientPositionList.length)*100) <= 75)
                                                     ? parser.emojify(':slightly_smiling_face:')
                                                     : parser.emojify(':smiley:'),
                                                 style: TextStyle(fontSize: 35),
@@ -1335,7 +1362,7 @@ class _GameScreenState extends State<GameScreen> {
                                       ],
                                     ),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                 ],
                               ),
                             ),
@@ -1483,7 +1510,7 @@ class _GameScreenState extends State<GameScreen> {
                   const Spacer(),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -1504,19 +1531,17 @@ class _GameScreenState extends State<GameScreen> {
                           physics:
                           const NeverScrollableScrollPhysics(),
                           crossAxisCount: 9,
-                          children: board.map((e) {
-                            if (e == 'X') {
-                              return Wall();
-                            } else if (e == 'F') {
+                          children: board.asMap().entries.map((e) {
+                            if (e.value == 'X') {
+                              return const Wall();
+                            } else if (e.value == 'F') {
                               return Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 2,vertical: 2),
+                                  padding: const EdgeInsets.symmetric(horizontal: 2,vertical: 2),
                                   decoration:
                                   const BoxDecoration(
                                     color: Colors.grey,
-
                                   ),
                                   child: Container(
-
                                     decoration: const BoxDecoration(
                                         image: DecorationImage(
                                           fit: BoxFit.cover,
@@ -1526,46 +1551,82 @@ class _GameScreenState extends State<GameScreen> {
                                     ),
                                   )
                               );
-                            } else if (e == 'B') {
+                            } else if (e.value == 'B') {
                               return Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                                  padding: const EdgeInsets.symmetric(horizontal: 2,vertical: 2),
                                   decoration:
                                   const BoxDecoration(
                                     color: Colors.grey,
-
                                   ),
-                                  child: Container(
-
-                                    decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          // opacity: 60,
-                                          image: AssetImage("assets/images/syringe.png"),
-                                        )
-                                    ),
+                                  child: Stack(
+                                    children: [
+                                      Container(
+                                        decoration:  BoxDecoration(
+                                          boxShadow:[
+                                            BoxShadow(
+                                              color: boardPatientPositionList.contains(e.key) ? Colors.lightGreenAccent.withOpacity(0.5) : Colors.transparent,
+                                              blurRadius: 15.0,
+                                              offset: const Offset(0.0, 0.0),
+                                            ),
+                                          ],
+                                          borderRadius: const BorderRadius.all(Radius.circular(50)),
+                                          border: boardPatientPositionList.contains(e.key) ? Border.all(color: Colors.lightGreenAccent.withOpacity(0.4),width: 2):null,
+                                          color: boardPatientPositionList.contains(e.key) ? Colors.lightGreenAccent.withOpacity(0.3):Colors.grey,
+                                        ),
+                                      ),
+                                      Container(
+                                        decoration:  const BoxDecoration(
+                                            image: DecorationImage(
+                                              fit: BoxFit.fill,
+                                              // opacity: 60,
+                                              image: AssetImage("assets/images/syringe.png"),
+                                            )
+                                        ),
+                                      ),
+                                    ],
                                   )
                               );
-                            } else if (e == 'P') {
+                            } else if (e.value == 'P') {
                               return SwipeDetector(
                                 child: Focus(
                                   autofocus: true,
                                   child: Container(
-                                      padding: EdgeInsets.symmetric(horizontal: 15,vertical: 1),
-                                      decoration:
-                                      const BoxDecoration(
-                                        color: Colors.grey,
+                                    padding: const EdgeInsets.symmetric(horizontal: 2,vertical: 2),
+                                    decoration:
+                                    const BoxDecoration(
+                                      color: Colors.grey,
 
-                                      ),
-                                      child: Container(
-
-                                        decoration: const BoxDecoration(
-                                            image: DecorationImage(
-                                              fit: BoxFit.fill,
-                                              // opacity: 60,
-                                              image: AssetImage("assets/images/male_doctor.gif"),
-                                            )
+                                    ),
+                                    child: boardPatientPositionList.contains(e.key) ? Stack(
+                                      children: [
+                                        Container(
+                                          decoration: const BoxDecoration(
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                // opacity: 60,
+                                                image: AssetImage("assets/images/covid_Person.png"),
+                                              )
+                                          ),
                                         ),
-                                      )
+                                        Container(
+                                          decoration: const BoxDecoration(
+                                              image: DecorationImage(
+                                                fit: BoxFit.fill,
+                                                // opacity: 60,
+                                                image: AssetImage("assets/images/male_doctor.gif"),
+                                              )
+                                          ),
+                                        ),
+                                      ],
+                                    ):Container(
+                                      decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                            fit: BoxFit.fill,
+                                            // opacity: 60,
+                                            image: AssetImage("assets/images/male_doctor.gif"),
+                                          )
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 onSwipeUp: () async {
@@ -1603,7 +1664,7 @@ class _GameScreenState extends State<GameScreen> {
                                     horizontalSwipeMinVelocity:
                                     20.0),
                               );
-                            } else if (e == 'T') {
+                            } else if (e.value == 'T') {
                               return Container(
                               );
                             } else {
@@ -1652,12 +1713,12 @@ class _GameScreenState extends State<GameScreen> {
                   physics:
                   const NeverScrollableScrollPhysics(),
                   crossAxisCount: 9,
-                  children: board.map((e) {
-                    if (e == 'X') {
-                      return Wall();
-                    } else if (e == 'F') {
+                  children: board.asMap().entries.map((e) {
+                    if (e.value == 'X') {
+                      return const Wall();
+                    } else if (e.value == 'F') {
                       return Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2,vertical: 2),
+                          padding: const EdgeInsets.symmetric(horizontal: 2,vertical: 2),
                           decoration:
                           const BoxDecoration(
                             color: Colors.grey,
@@ -1673,38 +1734,74 @@ class _GameScreenState extends State<GameScreen> {
                             ),
                           )
                       );
-                    } else if (e == 'B') {
+                    } else if (e.value == 'B') {
                       return Container(
-                          padding: EdgeInsets.symmetric(horizontal: 2,vertical: 2),
+                          padding: const EdgeInsets.symmetric(horizontal: 2,vertical: 2),
                           decoration:
                           const BoxDecoration(
-                            color: Colors.grey,
-
+                              color: Colors.grey,
                           ),
-                          child: Container(
-
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  fit: BoxFit.fill,
-                                  // opacity: 60,
-                                  image: AssetImage("assets/images/syringe.png"),
-                                )
-                            ),
+                          child: Stack(
+                            children: [
+                              Container(
+                                decoration:  BoxDecoration(
+                                  boxShadow:[
+                                    BoxShadow(
+                                      color: boardPatientPositionList.contains(e.key) ? Colors.lightGreenAccent.withOpacity(0.5) : Colors.transparent,
+                                      blurRadius: 15.0,
+                                      offset: const Offset(0.0, 0.0),
+                                    ),
+                                  ],
+                                  borderRadius: const BorderRadius.all(Radius.circular(50)),
+                                  border: boardPatientPositionList.contains(e.key) ? Border.all(color: Colors.lightGreenAccent.withOpacity(0.4),width: 2):null,
+                                    color: boardPatientPositionList.contains(e.key) ? Colors.lightGreenAccent.withOpacity(0.3):Colors.grey,
+                                ),
+                              ),
+                              Container(
+                                decoration:  const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      // opacity: 60,
+                                      image: AssetImage("assets/images/syringe.png"),
+                                    )
+                                ),
+                              ),
+                            ],
                           )
                       );
-                    } else if (e == 'P') {
+                    } else if (e.value == 'P') {
                       return SwipeDetector(
                         child: Focus(
                           autofocus: true,
                           child: Container(
-                              // padding: EdgeInsets.symmetric(horizontal: 15,vertical: 1),
+                            padding: const EdgeInsets.symmetric(horizontal: 2,vertical: 2),
                               decoration:
                               const BoxDecoration(
                                 color: Colors.grey,
 
                               ),
-                              child: Container(
-
+                              child: boardPatientPositionList.contains(e.key) ? Stack(
+                                children: [
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          // opacity: 60,
+                                          image: AssetImage("assets/images/covid_Person.png"),
+                                        )
+                                    ),
+                                  ),
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                          fit: BoxFit.fill,
+                                          // opacity: 60,
+                                          image: AssetImage("assets/images/male_doctor.gif"),
+                                        )
+                                    ),
+                                  ),
+                                ],
+                              ):Container(
                                 decoration: const BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.fill,
@@ -1712,7 +1809,7 @@ class _GameScreenState extends State<GameScreen> {
                                       image: AssetImage("assets/images/male_doctor.gif"),
                                     )
                                 ),
-                              )
+                              ),
                           ),
                         ),
                         onSwipeUp: () async {
@@ -1731,7 +1828,6 @@ class _GameScreenState extends State<GameScreen> {
                           moveDirection(context,"left",settingsStatus.MusicStatus,settingsStatus.vibrateStatus);
                         },
                         onSwipeRight: () async {
-
                           await settingsStatus.MusicStatus ? gameMusic.gameBoardMusic() : "";
                           settingsStatus.vibrateStatus ? HapticFeedback.vibrate() : "";
                           moveDirection(context,"right",settingsStatus.MusicStatus,settingsStatus.vibrateStatus);
@@ -1750,7 +1846,7 @@ class _GameScreenState extends State<GameScreen> {
                             horizontalSwipeMinVelocity:
                             20.0),
                       );
-                    } else if (e == 'T') {
+                    } else if (e.value == 'T') {
                       return Container();
                     } else {
                       return Container(
@@ -1769,7 +1865,6 @@ class _GameScreenState extends State<GameScreen> {
 
   Widget JoyStick(){
     return SizedBox(
-
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: Consumer<SettingsManager>(
@@ -1819,6 +1914,7 @@ class _GameScreenState extends State<GameScreen> {
       ),
     );
   }
+
   Widget lostScreen() {
     return Consumer<SettingsManager>(
       builder: (context, settingsStatus, child){
@@ -2208,18 +2304,18 @@ class _GameScreenState extends State<GameScreen> {
                                 _showAppbar = true;
                                 currentStage = currentStage;
                                 board = List.generate(81, (index) => '$index');
-                                staticIndexList =
-                                    stages[currentStage].staticIndexList.sublist(0);
-                                bricksStartPosition = stages[currentStage]
-                                    .bricksStartPosition
+                                boardWallIndexList =
+                                    stages[currentStage].wallIndexList.sublist(0);
+                                boardSyringeStartPositionList = stages[currentStage]
+                                    .syringeStartPosition
                                     .sublist(0);
-                                foodPositionList = stages[currentStage]
-                                    .foodPositionList
+                                boardPatientPositionList = stages[currentStage]
+                                    .patientPositionList
                                     .sublist(0);
-                                treesPositionList = stages[currentStage]
-                                    .treesPositionList
+                                boardEmptySpacePositionList = stages[currentStage]
+                                    .emptySpacePositionList
                                     .sublist(0);
-                                playerIndex = stages[currentStage].playerStartIndex;
+                                boardDoctorStartIndex = stages[currentStage].doctorStartIndex;
                               });
                               setState(() {
                                 buildBoard();
@@ -2308,6 +2404,7 @@ class _GameScreenState extends State<GameScreen> {
       },
     );
   }
+
   Future saveAndShare(Uint8List bytes) async{
     final time = DateTime.now().toIso8601String().replaceAll(".", "_").replaceAll(":", "_");
     final fileName = "screenshot_$time";
