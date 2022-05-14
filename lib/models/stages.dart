@@ -154,6 +154,16 @@ List<Stages> stages = [
   ),
   //lvl-4
   Stages(
+      wallIndexList: [2,3,4,5,6,9,10,11,15,18,24,25,26,27,35,36,37,38,43,44,47,51,52,56,57,59,60,66,67,68],
+      syringeStartPosition: [21,31,41],
+      patientPositionList:[22,30,32],
+      emptySpacePositionList:[0,1,7,8,16,17,45,46,53,54,55,61,62,63,64,65,69,70,71,72,73,74,75,76,77,78,79,80],
+      doctorStartIndex:14,
+      completed:false,
+      onLevel:false
+  ),
+  //lvl-5
+  Stages(
     wallIndexList: [
       1,
       2,
@@ -198,7 +208,7 @@ List<Stages> stages = [
     completed: false,
     onLevel: false,
   ),
-  //lvl-5
+  //lvl-6
   Stages(
     wallIndexList: [
       2,
@@ -238,7 +248,7 @@ List<Stages> stages = [
     completed: false,
     onLevel: false,
   ),
-  //lvl-6
+  //lvl-7
   Stages(
       wallIndexList: [2,3,4,5,9,10,11,14,18,23,27,31,32,33,34,36,37,38,40,43,44,47,53,56,61,62,65,68,69,70,74,75,76,77],
       syringeStartPosition: [49,50,59],
@@ -248,13 +258,23 @@ List<Stages> stages = [
       completed:false,
       onLevel:false
   ),
-  //lvl-7
+  //lvl-8
   Stages(
       wallIndexList: [1,2,3,4,5,6,7,8,10,17,19,25,26,27,28,33,34,36,42,45,50,51,54,55,59,64,65,67,68,74,75,76],
       syringeStartPosition: [22,23,29,30,47,49],
       patientPositionList:[21,23,30,39,48,57],
       emptySpacePositionList:[0,9,18,35,43,44,52,53,60,61,62,63,69,70,71,72,73,77,78,79,80],
       doctorStartIndex:41,
+      completed:false,
+      onLevel:false
+  ),
+  //lvl-9
+  Stages(
+      wallIndexList: [2,3,4,5,11,14,19,20,23,24,28,33,34,36,37,42,43,44,45,48,53,54,61,62,63,64,65,66,67,68,69,70,71],
+      syringeStartPosition: [31,39,49,50],
+      patientPositionList:[12,13,22,32],
+      emptySpacePositionList:[0,1,6,7,8,9,10,15,16,17,18,25,26,27,34,35,72,73,74,75,76,77,78,79,80],
+      doctorStartIndex:57,
       completed:false,
       onLevel:false
   ),

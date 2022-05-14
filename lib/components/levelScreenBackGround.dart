@@ -432,6 +432,8 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                       levelListTile(5),
                       levelListTile(6),
                       levelListTile(7),
+                      levelListTile(8),
+                      levelListTile(9),
                     ],
                   )
                 ],
@@ -911,8 +913,8 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                 "assets/rive_assets/levelscreenbackground.riv",
                 fit: BoxFit.cover,
                 artboard: "FortAnimations",
-                animations: ((lvlStatus.plevel == 5) &&
-                    (lvlStatus.lvlsStatus[4] == "1")) ? ["AllDone"] : [
+                animations: ((lvlStatus.plevel == stages.length) &&
+                    (lvlStatus.lvlsStatus[stages.length-2] == "1")) ? ["AllDone"] : [
                   "level${lvlStatus.plevel}"
                 ],
               )
@@ -950,6 +952,8 @@ class _LevelBackGroundState extends State<LevelBackGround> {
                       levelListTile(5),
                       levelListTile(6),
                       levelListTile(7),
+                      levelListTile(8),
+                      levelListTile(9),
                     ],
                   )
                 ],
