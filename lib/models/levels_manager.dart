@@ -8,7 +8,7 @@ late int presentLevel;
 class LevelsManager extends ChangeNotifier{
   final sharedpref = LevelsState();
   int plevel = 1;
-  List<String> lvlsStatus = ["0","0","0","0","0","0","0","0","0"];
+  List<String> lvlsStatus = ["0","0","0","0","0","0","0","0","0","0"];
 
   LevelsManager(){
     LevelSetUp();
@@ -17,7 +17,7 @@ class LevelsManager extends ChangeNotifier{
   void LevelSetUp() async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     int plvl = (await prefs.getInt("CLevel") ?? 1);
-    List<String> templvlsStatus = (await  prefs.getStringList("CurrentLevelStatus") ??["0","0","0","0","0","0","0","0","0"] );
+    List<String> templvlsStatus = (await  prefs.getStringList("CurrentLevelStatus") ??["0","0","0","0","0","0","0","0","0","0"] );
     plevel = plvl;
     presentLevel = plvl;
     lvlsStatus = templvlsStatus;

@@ -278,4 +278,14 @@ List<Stages> stages = [
       completed:false,
       onLevel:false
   ),
+  //lvl-10
+  Stages(
+      wallIndexList: [3,4,5,6,11,12,15,19,20,21,24,25,27,28,33,34,35,36,44,45,46,52,53,55,56,57,60,61,62,65,66,68,69,75,76,77],
+      syringeStartPosition: [22,31,40,49,58],
+      patientPositionList:[31,40,49,58,67],
+      emptySpacePositionList:[0,1,2,7,8,9,10,16,17,18,26,54,62,63,64,70,71,72,73,74,78,79,80],
+      doctorStartIndex:42,
+      completed:false,
+      onLevel:false
+  ),
 ];
