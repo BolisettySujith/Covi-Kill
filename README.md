@@ -74,6 +74,40 @@ In this game, doctor avatar need to play 5 levels to complete the whole game, as
   
   > Disable/Enable the Joy Sticks 🎮. 
 
+## **Mobile View 📱**
+  <table>
+       <tr>
+       <td align="center">Home Page</td>
+       <td align="center">Levels Page</td>
+       <td align="center">Settings Page</td>
+      </tr>
+       <tr>
+       <td><img src="images/home_mobile.jpg"></td>
+       <td><img src="images/levels_mobile.jpg"></td>
+       <td><img src="images/settings_mobile.jpg"></td>
+      </tr>
+       <tr>
+       <td align="center">All Levels</td>
+       <td align="center">Game Page</td>
+       <td align="center">Vaccinating to Patients with No Joy Stick</td>
+      </tr>
+      <tr>
+       <td><img src="images/All_levels_mobile.jpg"></td>
+       <td><img src="images/game_play_mobile.jpg"></td>
+       <td><img src="images/game_play2_mobile.jpg"></td>
+      </tr>
+      <tr>
+       <td align="center">Win Celebration</td>
+       <td align="center">Level Completed Page</td>
+       <td align="center">Level Lost Page</td>
+      </tr>
+      <tr>
+       <td><img src="images/win_cel_mobile.jpg"></td>
+       <td><img src="images/win_mobile.jpg"></td>
+       <td><img src="images/loose_mobile.jpg"></td>
+      </tr>
+  </table>
+
 
 ## **Desktop View 🖥️**
   <table>
@@ -94,18 +128,15 @@ In this game, doctor avatar need to play 5 levels to complete the whole game, as
       </tr>
   </table>
 
-## **Mobile View 📱**
-  <table>
-       <tr>
-       <td><img src="images/home_mobile.jpg"></td>
-       <td><img src="images/level_mobile.jpg"></td>
-       <td><img src="images/win_mobile.jpg"></td>
-      </tr>
-  </table>
 
-### **&ensp;Watch Demo Video 📺** : [YouTube](https://youtu.be/X2FtiMZKcP0)
+### **&ensp;Watch Demo Video on YouTube ▶️** : 
 
-### **&ensp;Try out the game from 📥** : [here](https://drive.google.com/file/d/1NNZK--5kLc2dcjwzA9xds5psNpx2CYDW/view?usp=sharing)
+<a href="https://www.youtube.com/watch?v=CYnWz8a8xiY&feature=player_embedded
+" target="_blank"><img src="https://img.youtube.com/vi/CYnWz8a8xiY/maxresdefault.jpg" 
+alt="Covi Kill"/></a>
+
+➜&ensp;[Watch My Demo Video](https://www.youtube.com/watch?v=CYnWz8a8xiY "Watch My Demo Video")
+### **&ensp;Try out the game from 📥** : [here](https://drive.google.com/file/d/1ZY7o0Khfuj_QlQ2nHBSvraqClMB6YlAu/view?usp=sharing)
 
 *<p align="center">Show some support by **⭐ing** the repository 😇</p>*
 
