@@ -129,13 +129,7 @@ In this game, doctor avatar need to play 5 levels to complete the whole game, as
   </table>
 
 
-### **&ensp;Watch Demo Video on YouTube ▶️** : 
 
-<a href="https://www.youtube.com/watch?v=CYnWz8a8xiY&feature=player_embedded
-" target="_blank"><img src="https://img.youtube.com/vi/CYnWz8a8xiY/maxresdefault.jpg" 
-alt="Covi Kill"/></a>
-
-➜&ensp;[Watch My Demo Video](https://www.youtube.com/watch?v=CYnWz8a8xiY "Watch My Demo Video")
 ### **&ensp;Try out the game from 📥** : [here](https://drive.google.com/file/d/1ZY7o0Khfuj_QlQ2nHBSvraqClMB6YlAu/view?usp=sharing)
 
 *<p align="center">Show some support by **⭐ing** the repository 😇</p>*
