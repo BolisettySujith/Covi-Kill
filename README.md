@@ -130,7 +130,7 @@ In this game, doctor avatar need to play 5 levels to complete the whole game, as
 
 
 
-### **&ensp;Try out the game from 📥** : [here](https://drive.google.com/file/d/1ZY7o0Khfuj_QlQ2nHBSvraqClMB6YlAu/view?usp=sharing)
+### **&ensp;Try out the game from 📥** : **Coming Soon On Play Store**
 
 *<p align="center">Show some support by **⭐ing** the repository 😇</p>*
 
