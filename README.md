@@ -2,6 +2,12 @@
 
 **<p align="center">Give Vaccine Kill Covid</p>**
 
+<a href="https://play.google.com/store/apps/details?id=com.sujith.covi_kill">
+<p align="center">
+<img src="https://github.com/steverichey/google-play-badge-svg/blob/master/img/en_get.svg" width="50%">
+</p>
+</a>
+
 ## **Introduction 👨‍💻**
 In the initial stages of covid-19 vaccine testing trails, doctors are testing with many vaccines for discovering a cure for covid-19, at that stage it became difficult for the doctors to give a proper vaccine to their patients. So taking this part as an inspiration to provide a vaccine to their patient in difficulit situations. Covi Kill is a simple interactive game which is available in Android, Web, Linux made using flutter.  
 
@@ -130,7 +136,7 @@ In this game, doctor avatar need to play 5 levels to complete the whole game, as
 
 
 
-### **&ensp;Try out the game from 📥** : **Coming Soon On Play Store**
+### **&ensp;Try out the game from 📥** : [**Play Store**](https://play.google.com/store/apps/details?id=com.sujith.covi_kill)
 
 *<p align="center">Show some support by **⭐ing** the repository 😇</p>*
 
